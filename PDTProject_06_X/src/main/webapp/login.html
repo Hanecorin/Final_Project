@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login.html</title>
+
+<style type="text/css">
+
+div#insertBoard {
+	display: flex;
+	justify-content: center;  /* 가로 기준으로 자식 요소를 가운데 배치 */
+}
+</style>
+</head>
+
+<body>
+<h3>PlayDataTalk Sign In</h3>
+<hr>
+<div id="signInBoard">
+	<form action="logIn" method="POST">
+		<table border="1">
+			<tr>
+				<td width="70">ID</td><td align="left">
+				<input type="text" name="userId"/></td>
+			</tr>
+			<tr>
+				<td>PW</td><td align="left">
+				<input type="password" name="pw" size="10"/></td>
+			</tr>
+		</table>
+		<button type="submit" class="btn btn-primary">로그인</button>
+	</form>
+</div>
+</body>
+</html>

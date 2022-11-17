@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>board.html</title>
+</head>
+<body>
+    <h3>게시글 등록</h3>
+    <hr>
+		<table border="1">
+			<tr>
+				<td>내용</td>
+				<td align="left"><input type="text" id="text" name="text" value="파이널 프로젝트 해시태그 출력 테스트" style="width:300px;height:200px" ></td>
+			</tr>
+            <tr>
+				<td>해시태그</td>
+				<div id="board"><td align="left"><input type="text" id="tag" value="작성 내용 중 한글만 인식합니다" size="40" style="width:300px" ></td></div>
+                <td><button onclick="makeTag()">해시태그 추천</button></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+                <td><button>게시글 등록</button></td>
+			</tr>
+		<script>
+		function makeTag() {
+
+			const xhttp = new XMLHttpRequest();
+			console.log(1);
+			xhttp.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("board").innerHTML = this.responseText;
+				}
+			};
+			// get 방식
+			// xhttp.open("get", "/make-hashtag?content=" + document.getElementById("content").value);
+			// xhttp.send()
+
+			// post	방식
+			xhttp.open("post", "/make-hashtag")
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("text="+document.getElementById("text").value);
+		}
+	</script>
+</body>
+</html>
